@@ -6,6 +6,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.40.0-jammy
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -13,9 +15,6 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm install -g pnpm && pnpm install
-      - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
-        working-directory: ./apps/playwright
       - name: Run Playwright tests
         run: pnpm test
       - uses: actions/upload-artifact@v3
