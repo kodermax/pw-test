@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "pnpm exec playwright test --config playwright.config.ts",
+    "test": "DEBUG=pw:webserver pnpm exec playwright test --config playwright.config.ts",
     "test:ui": "pnpm exec playwright test --ui --config playwright.config.ts"
   },
   "keywords": [],
